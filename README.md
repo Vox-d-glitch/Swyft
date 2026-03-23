@@ -63,7 +63,7 @@ swyft/
 ### Local dev
 ```bash
 # Clone the repo
-git clone https://github.com/your-org/swyft.git
+git clone https://github.com/Vatix-Protocol/Swyft.git
 cd swyft
 
 # Install all dependencies
