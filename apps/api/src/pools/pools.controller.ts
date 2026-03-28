@@ -5,9 +5,9 @@ import {
   NotFoundException,
   BadRequestException,
 } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiBearerAuth } from '@nestjs/swagger';
 import { GetPoolsQueryDto } from './dto/get-pools-query.dto';
 import { PoolsListResponse, PoolsService } from './pools.service';
+import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiBearerAuth } from '@nestjs/swagger';
 import { CacheService } from '../cache/cache.service';
 
 @Controller('pools')
@@ -26,6 +26,12 @@ export class PoolsController {
     private readonly poolsService: PoolsService,
     private readonly cacheService: CacheService,
   ) {}
+
+
+  @Get()
+  getPools(@Query() query: GetPoolsQueryDto): Promise<PoolsListResponse> {
+    return this.poolsService.getPools(query);
+  }
 
   @Get(':id')
   @ApiOperation({ summary: 'Get pool details by ID' })

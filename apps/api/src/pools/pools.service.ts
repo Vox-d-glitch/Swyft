@@ -61,7 +61,6 @@ export interface Swap {
 @Injectable()
 export class PoolsService {
   private readonly logger = new Logger(PoolsService.name);
-
   constructor(
     private readonly cache: CacheService,
     private readonly poolsRepository: PoolsRepository,
@@ -200,7 +199,6 @@ export class PoolsService {
   async invalidatePoolCache(poolId: string): Promise<void> {
     await this.cacheService.invalidate(`pool:${poolId}`);
   }
-}
 }
 
 export type { PoolsListResponse };
